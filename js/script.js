@@ -1,32 +1,32 @@
 const btnPlay = document.getElementById('btn-play');
 const container = document.getElementById('main-container');
+const bombsNumber = 16;
+let squareNumber = 0;
 
 btnPlay.addEventListener('click', function(){
-  const level = document.getElementById('level').value;
-  let squareNumber = 0;
+  const level = parseInt(document.getElementById('level').value);
+  
   container.innerHTML =''; 
   
 
-  if(level === '1'){
+  if(level === 1){
     squareNumber = 100;
 
-  }else if(level === '2'){
+  }else if(level === 2){
     squareNumber = 81;
   }else{
     squareNumber = 49;
   }
-  console.log(squareNumber);
 
   for(let i = 0; i < squareNumber; i++){
-    //creo l'elemento square e lo aggiungo al main-container con dentro un numero da q a squareNumber
+    //creo l'elemento square e lo aggiungo al main-container con dentro un numero da 1 a squareNumber
     sq = createSquare(container);
-    sq.innerHTML = i + 1;
+    sq.innerHTML = `<span> ${i + 1} </span>` ;
 
-    sq.addEventListener('click', function(){
-      this.classList.add('clicked');
-    })
+    sq.addEventListener('click', handleClickCell);
   };
 });
+
 
 /**
  * generatore di square
@@ -35,23 +35,49 @@ btnPlay.addEventListener('click', function(){
  */
 function createSquare(target){
   const sq = document.createElement('div');
-  let classLevel = '';
 
   sq.className = 'square';
 
   if(level.value === '1'){
     sq.classList.add('easy');
-    sq.classList.remove('hard', 'crazy')
   }else if(level.value === '2'){
     sq.classList.add('hard');
-    sq.classList.remove('easy', 'crazy')
   }else{
     sq.classList.add('crazy');
-    sq.classList.remove('hard', 'easy')
   }
-  console.log(classLevel)
 
   target.append(sq);
   return sq;
 
+
+
 };
+
+function handleClickCell(event){
+  const selectedNumber = event.target.innerText;
+  console.log(selectedNumber);
+  const boom = bombsGenerate();
+  console.log(boom);
+  if(!boom.includes(selectedNumber)){
+    this.classList.add('clicked');
+  }else{
+    this.classList.add('red-clicked');
+  }
+  
+}
+
+function bombsGenerate(){
+  const bombs = [];
+  while(bombs.length < bombsNumber){
+    const bomb = getRandomInt(1, squareNumber);
+
+    if(!bombs.includes(bomb)){
+      bombs.push(bomb);
+    }
+  }
+  return bombs
+}
+
+function getRandomInt(min, max){
+  return Math.floor(Math.random()*(max-min + 1) + min);
+}
