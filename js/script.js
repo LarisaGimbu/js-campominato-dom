@@ -1,8 +1,12 @@
 const btnPlay = document.getElementById('btn-play');
 const container = document.getElementById('main-container');
+const fineGiocoMsg = document.getElementById('finegioco-msg');
 const bombsNumber = 16;
 let squareNumber = 0;
 let boom = '';
+let giocoFinito = false;
+let squareText = '';
+let sqNumbers = [];
 
 btnPlay.addEventListener('click', function(){
   const level = parseInt(document.getElementById('level').value);
@@ -28,8 +32,16 @@ btnPlay.addEventListener('click', function(){
     sq.innerHTML = `<span> ${i + 1} </span>` ;
 
     sq.addEventListener('click', handleClickCell);
-  };
-});
+    
+    squareText = sq.innerText;
+    
+    sqNumbers.push(squareText);
+  }
+  
+  console.log('numero quadrati',sqNumbers);
+
+  
+})
 
 
 /**
@@ -55,19 +67,25 @@ function createSquare(target){
 
 
 
-};
+}
 
 function handleClickCell(event){
-  const selectedNumber = event.target.innerText;
-  console.log('numero selezionato',selectedNumber);
-  console.log('questo è l\'array di bombe dentro handleClick',boom);
 
-  if(boom.includes(parseInt(selectedNumber))){
-    this.classList.add('red-clicked');
+  if (giocoFinito == false){
+    const selectedNumber = event.target.innerText;
+
+     
+    if(boom.includes(parseInt(selectedNumber))){
+      this.classList.add('red-clicked');
+      giocoFinito = true;
+      fineGiocoMsg.innerHTML = 'Hai perso';
+      
+    }
+      
+    return this.classList.add('clicked');
+  }else{
+    console.log('il gioco è finito')
   }
-    
-  return this.classList.add('clicked');
-  
   
 }
 
