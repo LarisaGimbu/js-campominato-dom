@@ -2,6 +2,7 @@ const btnPlay = document.getElementById('btn-play');
 const container = document.getElementById('main-container');
 const bombsNumber = 16;
 let squareNumber = 0;
+let boom = '';
 
 btnPlay.addEventListener('click', function(){
   const level = parseInt(document.getElementById('level').value);
@@ -18,6 +19,8 @@ btnPlay.addEventListener('click', function(){
     squareNumber = 49;
   }
 
+  boom = bombsGenerate();
+  console.log(boom);
   for(let i = 0; i < squareNumber; i++){
     //creo l'elemento square e lo aggiungo al main-container con dentro un numero da 1 a squareNumber
     sq = createSquare(container);
@@ -55,13 +58,13 @@ function createSquare(target){
 
 function handleClickCell(event){
   const selectedNumber = event.target.innerText;
-  console.log(selectedNumber);
-  const boom = bombsGenerate();
-  console.log(boom);
-  if(!boom.includes(selectedNumber)){
-    this.classList.add('clicked');
+  console.log('numero selezionato',selectedNumber);
+  console.log('questo è l\'array di bombe',boom);
+
+  if(boom.includes(selectedNumber)){
+    console.log('questo numero è una bomba');
   }else{
-    this.classList.add('red-clicked');
+    console.log('NON è una bomba');
   }
   
 }
