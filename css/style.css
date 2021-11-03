@@ -1,0 +1,78 @@
+header{
+  width: 100%;
+  height: 80px;
+}
+
+/* header-left */
+.logo{
+  padding: 15px 0;
+}
+.logo img{
+  width: 50px;
+}
+.logo h2{
+  font-weight: bold;
+}
+
+/* header-right */
+.level-choice{
+  height: 100%;
+}
+.level-choice span, .level-choice select, .level-choice button{
+  margin-right: 5px;
+}
+.level-choice select, .level-choice button{
+  background-color: #E9EAEE;
+  border: 1px solid #8F8F9E;
+  border-radius: 5px;
+  padding: 0;
+}
+.level-choice select{
+  width: 200px;
+}
+.level-choice button{
+  width: 100px;
+  color: black;
+}
+
+/* MAIN  */
+main{
+  height: calc(100vh - 140px);
+  background-color: #7FFFD4;
+}
+#main-container{
+  width: 400px;
+  height: 400px;
+}
+
+.square{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.square.easy{
+  width: calc(100% / 10);
+  height: calc(100% / 10);
+}
+.square.hard{
+  width: calc(100% / 9);
+  height: calc(100% / 9);
+}
+.square.crazy{
+  width: calc(100% / 7);
+  height: calc(100% / 7);
+}
+
+.clicked{
+  background-color: #6595EE;
+  color: white;
+}
+
+
+footer{
+  width: 100%;
+  height: 50px;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- HEADER  -->
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="logo d-flex align-items-center">
+            <img src="img/logo-boolean.png" alt="">
+            <h2>Campo Minato</h2>
+          </div>
+        </div>
+        <div class="col">
+          <div class="level-choice d-flex align-items-center justify-content-end">
+            <span>Difficolt&agrave;:</span>
+            <select class="form-select" id="level" >
+              <option selected value="1">Easy</option>
+              <option value="2">Hard</option>
+              <option value="3">Crazy</option>
+            </select>
+            <button id="btn-play" type="button" class="btn btn-secondary">Play</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN  -->
+  <main class="d-flex justify-content-center align-items-center">
+    <div id="main-container" class="d-flex flex-wrap align-items-center">
+      <p><strong>Seleziona il livello di difficolt&agrave; e genera la griglia</strong></p>
+    </div>
+  </main>
+
+  <!-- FOOTER  -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p class="mt-4">Made width &hearts; by <a href="#">Boolean</a> </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+</html> 
